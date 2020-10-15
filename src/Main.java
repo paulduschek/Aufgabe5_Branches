@@ -29,21 +29,29 @@ public class Main extends Application {
 
         TextField t1 = new TextField();
         t1.setMinHeight(25);
+        t1.setStyle("-fx-font-size: 10; -fx-font-weight: bold");
 
         Label L1 = new Label("Grad Fahrenheit");
         L1.setStyle("-fx-font-size: 15; -fx-font-weight: bold");
 
-        TextField t2 = new TextField();
+        final TextField t2 = new TextField();
         t2.setMinHeight(25);
+        t2.setStyle("-fx-font-size: 10; -fx-font-weight: bold");
 
         Button b1 = new Button();
         b1.setText("Convert C -> F");
         EventHandler <MouseEvent> Handler1 = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                double c = 0;
 
+                c = Double.parseDouble(t1.getText());
+                double f = ((c * 1.8) + 32);
+
+                t2.setText(String.valueOf(f));
             }
         };
+
         b1.addEventHandler(MouseEvent.MOUSE_CLICKED, Handler1);
 
         Button b2 = new Button();
