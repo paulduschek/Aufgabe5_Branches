@@ -27,7 +27,7 @@ public class Main extends Application {
         Label L = new Label("Grad Celcius");
         L.setStyle("-fx-font-size: 15; -fx-font-weight: bold");
 
-        TextField t1 = new TextField();
+        final TextField t1 = new TextField();
         t1.setMinHeight(25);
         t1.setStyle("-fx-font-size: 10; -fx-font-weight: bold");
 
@@ -59,7 +59,11 @@ public class Main extends Application {
         EventHandler<MouseEvent> Handler2 = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                double f1;
 
+                f1 = Integer.parseInt(t2.getText());
+                double c1 = ((f1 - 32) * 5/9);
+                t1.setText(String.valueOf(c1));
             }
         };
         b2.addEventHandler(MouseEvent.MOUSE_CLICKED, Handler2);
